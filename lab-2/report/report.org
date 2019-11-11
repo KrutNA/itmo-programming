@@ -1,0 +1,155 @@
+#+SETUPFILE: /home/krutna/.emacs.d/org-mode/orgs/setup/setup.org
+#+LANGUAGE: ru
+#+AUTHOR: Krutko Nikita / KrutNA
+#+OPTIONS: toc:nil
+#+LATEX: \large
+#+LATEX: \thispagestyle{empty}
+#+BEGIN_CENTER
+*Национальный Исследовательский Университет ИТМО*\\
+*Факультет Программной Инженерии и Компьютерной Техники*\\
+#+END_CENTER
+#+LATEX: \vspace{2em}
+#+ATTR_LATEX: :width 120pt
+#+ATTR_ORG: :width 120px
+file:itmo-logo.png
+#+LATEX: \LARGE
+#+LATEX: \vspace{5em}
+#+BEGIN_CENTER
+*Вариант №82444*\\
+*Лабораторная работа №2*\\
+#+LATEX: \Large
+*по дисциплине*\\
+#+LATEX: \LARGE
+*/'Программирование'/*\\
+#+END_CENTER
+#+LATEX: \vspace{11em}
+#+LATEX: \large
+#+LATEX: \begin{flushright}
+*Выполнил:*\\
+*Студент группы P3113*\\
+*/Крутько Никита/ : 242570*\\
+*Преподаватель:*\\
+*/Письмак Алексей Евгеньевич/*\\
+#+LATEX: \end{flushright}
+#+LATEX: \vspace{4em}
+#+LATEX: \large
+#+BEGIN_CENTER
+*Санкт-Петербург 2019 г.*
+#+END_CENTER
+#+LATEX: \pagebreak{}
+#+TOC: headlines 3
+#+LATEX: \vspace{2em}
+#+BEGIN_EXPORT latex
+\newfontfamily\lstcomment[Scale=0.6]{Fira Code Regular}
+\newfontfamily\lstbasic[Scale=0.8,Contextuals=Alternate,Ligatures={TeX}]{Fira Code Regular}
+\lstset{
+  frame = shadowbox,
+  commentstyle = \lstcomment\it\small,
+  basicstyle = \lstbasic\small,
+  numberstyle = \lstbasic\tiny,numbers=left,
+  stringstyle = \lstbasic\it\small,
+}
+#+END_EXPORT
+* Задание
+** Текст
+#+LATEX: \small
+Write your own pokemon classes based on Pokemon class for all given pokemons. Each pokemon kind should hae one or two types and standard base stats: HP, attack, defense, special attack, special defense and speed.
+
+Pokemon classes should be inherited according to pokemon evolution chains.
+
+Write your own Move classes based on PhysicalMove, SpecialMove and StatusMove classes for all give moves. Each move should have standard type, power and accuracy and implement standard move effects. Assign moves to pokemons according to given task. Pokemon level should be set to minimal one required to learn all given moves.
+
+Use the simulation class Battle to create two pokemon teams (each pokemon should have a name) and start the battle.
+
+Base classes, battle simulator and utility classes are packed in jar archive. Documentation in javadoc format is in the zip file.
+
+All information about pokemon and move stats, evolution chains and so on you can find on http://pokemondb.net, http://veekun.com/dex/pokemon
+ 
+** Комментарии
+Task goal: Learn basic OOP principles using simple example and use them in your program.
+
+TO DO:
+
+Read documentation, pay special attention to Pokemon and Move classes. Later on working on lab continue to read documentation several times.
+Download Pokemon.jar. You need to use it to compile and run your program. Don't unpack it. You should learn how to use third-party jar-files together with your program.
+Write minimal working program and run it.
+#+BEGIN_SRC Java
+Battle b = new Battle();
+Pokemon p1 = new Pokemon("Alien", 1);
+Pokemon p2 = new Pokemon("Predator", 1);
+b.addAlly(p1);
+b.addFoe(p2);
+b.go();
+#+END_SRC
+Create one of pokémon class according to your individual task. The class should inherit from base Pokemon class. You should set pokémon types and base stats in the constructor. Add your new pokémon to the team and start the battle.
+Create one of move class
+
+** Покемоны
+file:pokemons.jpg
+
+* Исходный код
+** Package: com.krutna.battler
+#+CAPTION: Battleground.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/Battleground.java src Java
+ 
+** Package: com.krutna.battler.moves
+*** Pacakge: com.krutna.battler.moves.physical
+#+CAPTION: RockTomb.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/moves/physical/RockTomb.java src Java
+#+CAPTION: Tackle.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/moves/physical/Tackle.java src Java
+
+*** Package: com.krutna.battler.moves.special
+#+CAPTION: BubbleBeam.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/moves/special/BubbleBeam.java src Java
+#+CAPTION: DazzlingGleam.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/moves/special/DazzlingGleam.java src Java
+#+CAPTION: FireBlast.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/moves/special/FireBlast.java src Java
+#+CAPTION: IceBeam.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/moves/special/IceBeam.java src Java
+#+CAPTION: ShadowBall.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/moves/special/ShadowBall.java src Java
+#+CAPTION: WaterPulse.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/moves/special/WaterPulse.java src Java
+
+*** Package com.krutna.battler.moves.status
+#+CAPTION: FocusEnergy.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/moves/status/FocusEnergy.java src Java
+#+CAPTION: Leer.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/moves/status/Leer.java src Java
+#+CAPTION: Rest.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/moves/status/Rest.java src Java
+#+CAPTION: SwordsDance.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/moves/status/SwordsDance.java src Java
+
+** Package: com.krutna.battler.pokemons
+#+CAPTION: Lycanroc.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/pokemons/Lycanroc.java src Java
+#+CAPTION: Phione.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/pokemons/Phione.java src Java
+#+CAPTION: Rockruff.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/pokemons/Rockruff.java src Java
+#+CAPTION: Slaking.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/pokemons/Slaking.java src Java
+#+CAPTION: Slakoth.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/pokemons/Slakoth.java src Java
+#+CAPTION: Vigoroth.java
+#+INCLUDE: ../src/main/java/com/krutna/battler/pokemons/Vigoroth.java src Java
+
+* Диаграмма классов реализованной объектной модели
+file:diagram.png
+#+LATEX: \pagebreak{}
+
+* Вывод программы
+#+LATEX_HEADER: \usepackage{spverbatim}
+#+BEGIN_SRC shell :exports results :results output raw
+  cat result.out \
+      | awk \
+	    'BEGIN{print "\\scriptsize\n#+attr_latex: :center nil\n|/|<l5>|l|"}
+	    /.+/{printf "| |%d| %s |\n", NR, $0}
+	    END{print "\\normalsize"}'
+#+END_SRC
+
+* Вывод
+Я изучил основы ООП в Java. Поработал с +ужасным+ API библиотеки Pokemon.jar и выполнил на его основе задание 2ой лабораторной работы. Также изучил и использовал систему систему автоматической сборки Gradle и поставил её на helios.
