@@ -1,0 +1,135 @@
+% Created 2019-11-18 Пн 02:15
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[T2A]{fontenc}
+\usepackage[a4paper,left=3cm,top=2cm,right=1.5cm,bottom=2cm,marginparsep=7pt,marginparwidth=.6in]{geometry}
+\usepackage{cmap}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian} \setotherlanguage{english}
+\setmainfont{Liberation Serif}
+\setsansfont{Liberation Sans}
+\setmonofont[Contextuals=Alternate,Ligatures={TeX}]{Fira Code Regular}
+\author{Krutko Nikita / KrutNA}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Krutko Nikita / KrutNA},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.1 (Org mode 9.1.9)}, 
+ pdflang={Russian}}
+\begin{document}
+
+\large
+\thispagestyle{empty}
+\begin{center}
+\textbf{Национальный Исследовательский Университет ИТМО}\\
+\textbf{Факультет Программной Инженерии и Компьютерной Техники}\\
+\end{center}
+\vspace{2em}
+\begin{center}
+\includegraphics[width=120pt]{itmo-logo.png}
+\end{center}
+\LARGE
+\vspace{5em}
+\begin{center}
+\textbf{Вариант №84222}\\
+\textbf{Лабораторная работа №3}\\
+\Large
+\textbf{по дисциплине}\\
+\LARGE
+\textbf{\emph{'Программирование'}}\\
+\end{center}
+\vspace{11em}
+\large
+\begin{flushright}
+\textbf{Выполнил:}\\
+\textbf{Студент группы P3113}\\
+\textbf{\emph{Крутько Никита} : 242570}\\
+\textbf{Преподаватель:}\\
+\textbf{\emph{Письмак Алексей Евшеньевич}}\\
+\end{flushright}
+\vspace{4em}
+\large
+\begin{center}
+\textbf{Санкт-Петербург 2019 г.}
+\end{center}
+\pagebreak{}
+\setcounter{tocdepth}{2}
+\tableofcontents
+\vspace{2em}
+\section{Задание}
+\label{sec:org6ef992b}
+
+\subsection{Программа должна удовлетворять следующим требованиям:}
+\label{sec:org0949cc2}
+
+\begin{enumerate}
+\item Доработанная модель должна соответствовать принципам SOLID.
+\item Программа должна содержать как минимум два интерфейса и один абстрактный класс (номенклатура должна быть согласована с преподавателем).
+\item В разработанных классах должны быть переопределены методы equals(), toString() и hashCode().
+\item Программа должна содержать как минимум один перечисляемый тип (enum).
+\end{enumerate}
+
+\subsection{Порядок выполнения работы:}
+\label{sec:orgdd6cd37}
+
+\begin{enumerate}
+\item Доработать объектную модель приложения.
+\item Перерисовать диаграмму классов в соответствии с внесёнными в модель изменениями.
+\item Согласовать с преподавателем изменения, внесённые в модель.
+\item Модифицировать программу в соответствии с внесёнными в модель изменениями.
+\item Отчёт по работе должен содержать:
+\end{enumerate}
+
+\subsection{Текст задания.}
+\label{sec:org44fd17b}
+\begin{enumerate}
+\item Диаграмма классов объектной модели.
+\item Исходный код программы.
+\item Результат работы программы.
+\item Выводы по работе.
+\item Вопросы к защите лабораторной работы:
+\end{enumerate}
+
+\subsection{Принципы объектно-ориентированного программирования SOLID и STUPID.}
+\label{sec:org87c3ca7}
+\begin{enumerate}
+\item Класс Object. Реализация его методов по умолчанию.
+\item Особенности реализации наследования в Java. Простое и множественное наследование.
+\item Понятие абстрактного класса. Модификатор abstract.
+\item Понятие интерфейса. Реализация интерфейсов в Java, методы по умолчанию. Отличия от абстрактных классов.
+\item Перечисляемый тип данных (enum) в Java. Особенности реализации и использования.
+\item Методы и поля с модификаторами static и final.
+\item Перегрузка и переопределение методов. Коварианты возвращаемых типов данных.
+\item Элементы функционального программирования в синтаксисе Java. Функциональные интерфейсы, лямбда-выражения. Ссылки на методы.
+\end{enumerate}
+
+\subsection{Задание:}
+\label{sec:org105ab8b}
+\uline{Но лунатики знали, что вечно так продолжаться не может, что со временем воздух вокруг Луны совсем рассеется, отчего поверхность Луны, не защищенная значительным слоем воздуха, будет сильно прогреваться солнечными лучами и на Луне даже под стеклянным колпаком невозможно будет существовать. Вот поэтому-то лунатики стали переселяться внутрь Луны и теперь живут не с наружной, а с внутренней ее стороны, так как на самом деле Луна внутри пустая, вроде резинового мяча, и на внутренней ее поверхности можно так же прекрасно жить, как и на внешней. Эта Знайкина книжка наделала много шума. Все коротышки с увлечением читали ее. Многие ученые хвалили эту книжку за то, что она интересно написана, но все же высказывали недовольство тем, что она научно не обоснована. А действительный член академии астрономических наук профессор Звездочкин, которому тоже случилось прочитать Знайкину книжку, просто кипел от негодования и говорил, что книга эта -- вовсе не книга, а какая-то, как он выразился, чертова чепуха. Этот профессор Звездочкин был не то чтобы какой-нибудь очень сердитый субъект. Нет, он был довольно добрый коротышка, но очень, как бы это сказать, требовательный, непримиримый. Во всяком деле он ценил больше всего точность, порядок и терпеть не мог никаких фантазий, то есть выдумок.}
+
+\section{Исходный код}
+\label{sec:orgce5eeb3}
+github.com/KrutNA/itmo-programming/tree/lab-3/
+
+\section{Вывод}
+\label{sec:orgd8b0fcd}
+В ходе лабораторной работы я познакомился с интерфейсами, абстрактными классами и енамами. Попытался в dependency injection, не разобрался и сделал без него :с.
+\end{document}
