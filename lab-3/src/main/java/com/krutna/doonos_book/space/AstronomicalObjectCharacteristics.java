@@ -1,19 +1,35 @@
 package com.krutna.doonos_book.space;
 
 import com.krutna.doonos_book.Entity;
+import com.krutna.doonos_book.exceptions.UnsignedException;
 import java.util.List;
 
 public class AstronomicalObjectCharacteristics {
   private double atmosphere;
   private double middleRadius;
+  private double temperature;
   private double mass;
   private List<Entity> entities;
 
   // @Inject
   public AstronomicalObjectCharacteristics(
-      double atmosphere, double radius, double mass, List<Entity> entities) {
+      double atmosphere, double radius, double mass, double temperature, List<Entity> entities)
+      throws UnsignedException {
+    if (atmosphere < 0) {
+      throw new UnsignedException(atmosphere);
+    }
+    if (radius < 0) {
+      throw new UnsignedException(radius);
+    }
+    if (mass < 0) {
+      throw new UnsignedException(mass);
+    }
+    if (temperature < 0) {
+      throw new UnsignedException(temperature);
+    }
     this.atmosphere = atmosphere;
     this.middleRadius = radius;
+    this.temperature = temperature;
     this.mass = mass;
     this.entities = entities;
   };
@@ -28,6 +44,15 @@ public class AstronomicalObjectCharacteristics {
 
   double getMass() {
     return this.mass;
+  }
+
+  double getTemperature() {
+    return this.temperature;
+  }
+
+  void resetAtmosphere() {
+    this.atmosphere = 0D;
+    this.temperature *= 2;
   }
 
   List<Entity> getEntities() {

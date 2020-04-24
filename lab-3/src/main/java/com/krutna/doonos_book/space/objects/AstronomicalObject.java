@@ -1,6 +1,7 @@
 package com.krutna.doonos_book.space.objects;
 
 import com.krutna.doonos_book.Entity;
+import com.krutna.doonos_book.exceptions.UnsignedException;
 import com.krutna.doonos_book.space.AstronomicalObjectCharacteristics;
 
 public abstract class AstronomicalObject extends Entity {
@@ -12,7 +13,8 @@ public abstract class AstronomicalObject extends Entity {
 
   // @Inject
   public AstronomicalObject(
-      String name, Type type, AstronomicalObjectCharacteristics characteristics) {
+      String name, Type type, AstronomicalObjectCharacteristics characteristics)
+      throws UnsignedException {
     super(name);
     this.type = type;
     this.characteristics = characteristics;
