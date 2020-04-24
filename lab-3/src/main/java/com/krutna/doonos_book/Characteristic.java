@@ -1,13 +1,17 @@
 package com.krutna.doonos_book;
 
 public class Characteristic {
-  private String name;
+  protected String name;
 
   public Characteristic(String name) {
     this.name = name;
   }
 
   public String getName() {
+    return this.name;
+  }
+
+  public String getInfo() {
     return this.name;
   }
 

@@ -1,5 +1,6 @@
 package com.krutna.doonos_book.space.objects;
 
+import com.krutna.doonos_book.exceptions.UnsignedException;
 import com.krutna.doonos_book.space.AstronomicalObjectCharacteristics;
 import com.krutna.doonos_book.space.objects.AstronomicalObject.Type;
 
@@ -33,7 +34,8 @@ public class Star extends AstronomicalObject {
     }
   }
 
-  public Star(String name, Type type, AstronomicalObjectCharacteristics characteristics) {
+  public Star(String name, Type type, AstronomicalObjectCharacteristics characteristics)
+      throws UnsignedException {
     super(name, type, characteristics);
   }
 }
